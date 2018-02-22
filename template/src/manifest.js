@@ -30,7 +30,7 @@ module.exports = {
   ],
   browser_action: {
     default_title: 'title',
-    {{#if components.popup}}
+    {{#if components.popupTab}}
     default_popup: 'pages/popup.html'
     {{/if}}
   },
@@ -58,7 +58,9 @@ module.exports = {
     all_frames: true
   }],
   {{/if}}
+  {{#if locales}}
   default_locale: 'en',
+  {{/if}}
   manifest_version: 2,
   content_security_policy: "script-src 'self' 'unsafe-eval'; object-src 'self'",
   web_accessible_resources: [

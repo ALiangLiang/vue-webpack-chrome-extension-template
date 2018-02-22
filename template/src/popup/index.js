@@ -5,9 +5,11 @@ import 'element-ui/lib/theme-chalk/index.css'
 
 Vue.config.productionTip = false
 
+{{#if locales}}
 // used in Vue rendering
 Vue.prototype.__ = chrome.i18n.getMessage
 
+{{/if}}
 Vue.use(ElementUI)
 
 new Vue({ // eslint-disable-line no-new
