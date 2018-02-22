@@ -1,9 +1,10 @@
 const path = require('path')
 const webpack = require('webpack')
-const ChromeExtensionReloader = require('webpack-chrome-extension-reloader')
+const ChromeReloadPlugin = require('wcer')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-const GenerateManifestJsonPlugin = require('../plugins/GenerateManifestJsonPlugin')
+{{#if components.locales}}
 const GenerateLocaleJsonPlugin = require('../plugins/GenerateLocaleJsonPlugin')
+{{/if}}
 const { cssLoaders, htmlPage } = require('./tools')
 
 let resolve = (dir) => path.join(__dirname, '..', 'src', dir)
@@ -113,15 +114,15 @@ module.exports = {
     {{/if}}
     // End customize
     new CopyWebpackPlugin([{ from: path.join(__dirname, '..', 'static') }]),
-    new ChromeExtensionReloader({ port: 9090 }),
+    new ChromeReloadPlugin({
+      port: 9090,
+      manifest: path.join(__dirname, '..', 'src', 'manifest.js')
+    }),
     {{#if components.locales}}
     new GenerateLocaleJsonPlugin({
       _locales: path.join(__dirname, '..', 'src', '_locales')
     }),
     {{/if}}
-    new GenerateManifestJsonPlugin({
-      manifestPath: path.join(__dirname, '..', 'src', 'manifest.js')
-    }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
       minChunks: function (module) {

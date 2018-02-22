@@ -1,15 +1,15 @@
 <template lang="pug">
-{{#if locales}}
+{{#if components.locales}}
   {{{{raw-helper}}}}
     div {{ __('tab') }}
   {{{{/raw-helper}}}}
 {{/if}}
-{{#unless locales}}
+{{#unless components.locales}}
     div tab
 {{/unless}}
 </template>
 <script>
-  {{#if locales}}
+  {{#if components.locales}}
   const __ = chrome.i18n.getMessage
 
   {{/if}}
@@ -18,10 +18,10 @@
     }),
     computed: { },
     created () {
-      {{#if locales}}
+      {{#if components.locales}}
       console.log(__('tab'))
       {{/if}}
-      {{#unless locales}}
+      {{#unless components.locales}}
       console.log('tab')
       {{/unless}}
     },

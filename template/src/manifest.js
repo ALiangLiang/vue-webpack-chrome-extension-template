@@ -2,11 +2,11 @@
  * @see {@link https://developer.chrome.com/extensions/manifest}
  */
 module.exports = {
-  {{#if locales}}
+  {{#if components.locales}}
   name: '__MSG_extName__', // Vue Extension
   description: '__MSG_extDescription__', // Vue.js Webpack Chrome Extension Template
   {{/if}}
-  {{#unless locales}}
+  {{#unless components.locales}}
   name: '{{ name }}',
   description: '{{ description }}',
   {{/unless}}
@@ -58,7 +58,7 @@ module.exports = {
     all_frames: true
   }],
   {{/if}}
-  {{#if locales}}
+  {{#if components.locales}}
   default_locale: 'en',
   {{/if}}
   manifest_version: 2,

@@ -5,7 +5,7 @@ import 'element-ui/lib/theme-chalk/index.css'
 
 Vue.config.productionTip = false
 
-{{#if locales}}
+{{#if components.locales}}
 // used in Vue rendering
 Vue.prototype.__ = chrome.i18n.getMessage
 

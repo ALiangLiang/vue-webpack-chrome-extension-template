@@ -31,7 +31,7 @@ $ npm run dev # or yarn dev
 │   ├── GenerateLocaleJsonPlugin.js   # Transform locale message."js" to "json"
 │   └── GenerateManifestJsonPlugin.js # Transform your manifest."js" to "json"
 ├── dist                              # your runtime code. generate by program.
-├── src                               # your source codes
+├── src                               # your source code
 │   ├── background                    # Background work of your extension (https://developer.chrome.com/extensions/background_pages)
 │   ├── content                       # Run in the context of web pages (https://developer.chrome.com/extensions/content_scripts)
 │   ├── devtools                      # It can add new UI panels and sidebars, interact with the inspected page, get information about network requests, and more. (https://developer.chrome.com/extensions/devtools)
