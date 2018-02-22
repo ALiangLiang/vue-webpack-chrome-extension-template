@@ -1,5 +1,7 @@
 # Vue.js Webpack Chrome Extension Template
 
+[![npm](https://img.shields.io/npm/v/vue-webpack-chrome-extension-template.svg)](https://www.npmjs.com/package/vue-webpack-chrome-extension-template)
+
 > Template for quick creation of Chrome extension on Vuejs hot reloading when developing.
 
 ## Installation:
@@ -10,7 +12,7 @@ This boilerplate was built as a template for [vue-cli](https://github.com/vuejs/
 # install vue-cli
 $ npm install -g vue-cli
 # create a new project using the template
-$ vue init ALiangLiang/vue-webpack-chrome-extension-template my-project
+$ vue init vue-webpack-chrome-extension-template my-project
 # install dependencies and go!
 $ cd my-project
 $ npm install # or yarn
