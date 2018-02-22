@@ -3,6 +3,8 @@
 
 # dependencies
 node_modules
+template/package-lock.json
+template/yarn.lock
 
 # logs
 npm-debug.log
