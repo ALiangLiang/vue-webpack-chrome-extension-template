@@ -1,0 +1,10 @@
+{
+  "name": "vue-webpack-chrome-extension-template",
+  "version": "0.0.1",
+  "description": "Template for quick creation of Chrome extension on Vuejs hot reloading when developing.",
+  "author": "ALiangLiang",
+  "license": "MIT",
+  "devDependencies": {
+    "vue-cli": "^2.9.3"
+  }
+}
