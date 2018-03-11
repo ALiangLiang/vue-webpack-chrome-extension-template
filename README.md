@@ -12,7 +12,7 @@ This boilerplate was built as a template for [vue-cli](https://github.com/vuejs/
 # install vue-cli
 $ npm install -g vue-cli
 # create a new project using the template
-$ vue init vue-webpack-chrome-extension-template my-project
+$ vue init ALiangLiang/vue-webpack-chrome-extension-template my-project
 # install dependencies and go!
 $ cd my-project
 $ npm install # or yarn
@@ -34,15 +34,15 @@ $ npm run dev # or yarn dev
 │   └── GenerateManifestJsonPlugin.js # Transform your manifest."js" to "json"
 ├── dist                              # your runtime code. generate by program.
 ├── src                               # your source code
+│   ├── _locales                      # Implement internationalization across your whole extension (https://developer.chrome.com/extensions/i18n)
 │   ├── background                    # Background work of your extension (https://developer.chrome.com/extensions/background_pages)
 │   ├── content                       # Run in the context of web pages (https://developer.chrome.com/extensions/content_scripts)
 │   ├── devtools                      # It can add new UI panels and sidebars, interact with the inspected page, get information about network requests, and more. (https://developer.chrome.com/extensions/devtools)
 │   ├── ext                           # Shared scripts
-│   ├── _locales                      # Implement internationalization across your whole extension (https://developer.chrome.com/extensions/i18n)
 │   ├── options                       # To allow users to customize the behavior of your extension, you may wish to provide an options page. (https://developer.chrome.com/extensions/options)
 │   ├── popup                         # The page (window) that will be displayed when the icon is clicked
-│   └── tab                           # Your application will work in a separate tab
-│   ├── manifest.js                   # Descriptions of the application, its rights and possibilities (https://developer.chrome.com/extensions/manifest)
+│   ├── tab                           # Your application will work in a separate tab
+│   └── manifest.js                   # Descriptions of the application, its rights and possibilities (https://developer.chrome.com/extensions/manifest)
 ├── static                            # static assets, would copy into dist directly.
 │   └── icons                         # icons
 ├── extension.zip                     # extension package. used to upload to web store.
