@@ -1,8 +1,23 @@
 {
   "name": "vue-webpack-chrome-extension-template",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Template for quick creation of Chrome extension on Vuejs hot reloading when developing.",
   "author": "ALiangLiang",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ALiangLiang/vue-webpack-chrome-extension-template.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ALiangLiang/vue-webpack-chrome-extension-template/issues"
+  },
+  "keywords": [
+    "vue",
+    "webpack",
+    "webpack-boilerplate",
+    "template",
+    "chrome-extension",
+    "vuejs2"
+  ],
   "license": "MIT",
   "devDependencies": {
     "vue-cli": "^2.9.3"
