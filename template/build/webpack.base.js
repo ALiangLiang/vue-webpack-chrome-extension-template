@@ -1,5 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
 const ChromeReloadPlugin = require('wcer')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 {{#if components.locales}}
@@ -7,7 +8,10 @@ const GenerateLocaleJsonPlugin = require('../plugins/GenerateLocaleJsonPlugin')
 {{/if}}
 const { cssLoaders, htmlPage } = require('./tools')
 
-let resolve = (dir) => path.join(__dirname, '..', 'src', dir)
+const rootDir = path.resolve(__dirname, '..')
+
+let resolve = (dir) => path.join(rootDir, 'src', dir)
+
 module.exports = {
   entry: {
     {{#if components.popupTab}}
@@ -29,7 +33,7 @@ module.exports = {
     {{/if}}
   },
   output: {
-    path: path.join(__dirname, '..', 'dist'),
+    path: path.join(rootDir, 'dist'),
     publicPath: '/',
     filename: 'js/[name].js',
     chunkFilename: 'js/[id].[name].js?[hash]',
@@ -47,9 +51,7 @@ module.exports = {
       test: /\.(js|vue)$/,
       loader: 'eslint-loader',
       enforce: 'pre',
-      include: [
-        path.join(__dirname, '..', 'src'), path.join(__dirname, '..', 'test')
-      ],
+      include: [ path.join(rootDir, 'src') ],
       options: { formatter: require('eslint-friendly-formatter') }
     }, {
       test: /\.vue$/,
@@ -71,7 +73,9 @@ module.exports = {
       test: /\.js$/,
       loader: 'babel-loader',
       include: [
-        path.join(__dirname, '..', 'src'), path.join(__dirname, '..', 'test')
+        path.join(rootDir, 'src'),
+        // https://github.com/sagalbot/vue-select/issues/71#issuecomment-229453096
+        path.join(rootDir, 'node_modules', 'element-ui', 'src', 'utils')
       ]
     }, {
       test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
@@ -97,6 +101,7 @@ module.exports = {
     }]
   },
   plugins: [
+		new CleanWebpackPlugin(['*'], { root: path.join(rootDir, 'dist') }),
     // Customize your extension structure.
     {{#if components.popupTab}}
     htmlPage('home', 'app', ['manifest', 'vendor', 'tab']),
@@ -113,14 +118,14 @@ module.exports = {
     htmlPage('background', 'background', ['manifest', 'vendor', 'background']),
     {{/if}}
     // End customize
-    new CopyWebpackPlugin([{ from: path.join(__dirname, '..', 'static') }]),
+    new CopyWebpackPlugin([{ from: path.join(rootDir, 'static') }]),
     new ChromeReloadPlugin({
       port: 9090,
-      manifest: path.join(__dirname, '..', 'src', 'manifest.js')
+      manifest: path.join(rootDir, 'src', 'manifest.js')
     }),
     {{#if components.locales}}
     new GenerateLocaleJsonPlugin({
-      _locales: path.join(__dirname, '..', 'src', '_locales')
+      _locales: path.join(rootDir, 'src', '_locales')
     }),
     {{/if}}
     new webpack.optimize.CommonsChunkPlugin({
